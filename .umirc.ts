@@ -1,4 +1,5 @@
 import { defineConfig } from 'dumi';
+import { name } from './package.json'
 
 export default defineConfig({
   title: 'Daily-Learn',
@@ -6,6 +7,7 @@ export default defineConfig({
     'https://s01.mifile.cn/favicon.ico',
   logo: 'https://s02.mifile.cn/assets/static/image/logo-mi2.png',
   outputPath: 'docs-dist',
+  publicPath: process.env.NODE_ENV === 'production' ? `/${name}/` : '/',
   mode: 'site',
   hash: true,
   menus: {
