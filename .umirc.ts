@@ -1,13 +1,16 @@
 import { defineConfig } from 'dumi';
 import { name } from './package.json'
 
+const basePath = process.env.NODE_ENV === 'production' ? `/${name}/` : '/'
+
 export default defineConfig({
   title: 'Daily-Learn',
   favicon:
     'https://s01.mifile.cn/favicon.ico',
   logo: 'https://s02.mifile.cn/assets/static/image/logo-mi2.png',
   outputPath: 'docs-dist',
-  publicPath: process.env.NODE_ENV === 'production' ? `/${name}/` : '/',
+  base: basePath,
+  publicPath: basePath,
   mode: 'site',
   hash: true,
   menus: {
